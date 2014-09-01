@@ -1,13 +1,17 @@
 language: ruby
+
 cache: bundler
+
 rvm:
   - 1.9.3
   - 2.0.0
   - 2.1.1
+
 env:
   - DB=pg
   - DB=sqlite3
   - DB=mysql
+
 before_script:
   - psql -c 'create database activerecord_like_test' -U postgres
   - mysql -e 'create database activerecord_like_test'
