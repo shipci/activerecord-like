@@ -4,15 +4,17 @@ cache: bundler
 
 
 rvm:
-  - 1.9.3
-  - 2.0.0
+ # - 1.9.3
+#  - 2.0.0
   - 2.1.1
 
 
 env:
+ global:
   - DB=pg
-  - DB=sqlite3
-  - DB=mysql
+ # - DB=sqlite3
+  #- DB=mysql
+  - CI_REPORTS=shippable/testresults COVERAGE_REPORTS=shippable/codecoverage
 
 before_script:
   - psql -c 'create database activerecord_like_test' -U postgres
